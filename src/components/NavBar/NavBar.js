@@ -10,9 +10,15 @@ const NavBar = () => {
         </Link>
         </span>
         <ul className={styles.list}>
-            <li className={styles.link}><NavLink to='/home'>Home</NavLink></li>
-            <li className={styles.link}><NavLink to='/about'>About</NavLink></li>
-            <li className={styles.link}><NavLink to='/favorite'>Favorite</NavLink></li>
+            <li className={styles.link}>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to='/'>Home</NavLink>
+            </li>
+            <li className={styles.link}>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to='/about'>About</NavLink>
+            </li>
+            <li className={styles.link}>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}to='/favourite'> Favourite</NavLink>
+            </li>
         </ul>
       </nav>
     );

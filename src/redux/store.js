@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import initialState from './initialState';
+import initialState from './initialState'
 import shortid from 'shortid';
 import strContains from '../utils/strContains';
 
@@ -9,9 +9,17 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => cards
 
   
 export const getAllColumns = (state => state.columns);
-export const addColumn = payload =>({type: 'ADD_COLUMN',payload})
-export const addCard = payload => ({type: 'ADD_CARD',payload})
-export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING',payload})
+export const getAllLists = (state => state.lists);
+
+export const getListById = ({ lists }, listId) => lists.find(lists => lists.id === listId);
+export const getColumnsByList = ({ columns }, listId) => columns.filter(column => column.listId === listId);
+export const getSearchString = (state => state.searchString);
+
+
+export const addColumn = payload =>({type: 'ADD_COLUMN',payload});
+export const addCard = payload => ({type: 'ADD_CARD',payload});
+export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING',payload});
+export const addList = payload => ({ type: 'ADD_LIST', payload });
 
 const reducer = (state, action) => {
   
@@ -22,6 +30,8 @@ const reducer = (state, action) => {
       return { ...state, cards: [...state.cards,{ ...action.payload, id: shortid() }]};
     case 'UPDATE_SEARCHSTRING':
       return { ...state, searchString: action.payload };
+    case 'ADD_LIST':
+      return { ...state, lists: [...state.lists, { id: shortid(), ...action.payload }]};
     default:
       return state;
   }
