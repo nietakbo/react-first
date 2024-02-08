@@ -14,10 +14,10 @@ const NavBar = () => {
             <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to='/'>Home</NavLink>
             </li>
             <li className={styles.link}>
-            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to='/about'>About</NavLink>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}to='/favorite'> Favorite</NavLink>
             </li>
             <li className={styles.link}>
-            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined}to='/favourite'> Favourite</NavLink>
+            <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to='/about'>About</NavLink>
             </li>
         </ul>
       </nav>
