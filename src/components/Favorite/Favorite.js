@@ -1,6 +1,6 @@
 import PageTitle from '../PageTitle/PageTitle';
 import { useSelector } from 'react-redux';
-import { getFavoriteCards } from '../../redux/store';
+import { getFavoriteCards } from '../../redux/cardsRedux.js';
 import Card from '../Card/Card';
 import styles from './Favorite.module.scss'
 
@@ -10,7 +10,7 @@ const Favorite = () => {
     return (
       <>
         <PageTitle>Favorite</PageTitle>
-        <h2 className={styles.column}>No favourite cards...</h2>
+        <h2 className={styles.column}>No favorite cards...</h2>
       </>
     );
   } else {
